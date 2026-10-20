@@ -4,14 +4,31 @@ from rules import day_name, meal_type
 
 def revenue_by_day(orders):
     """Виторг за днями тижня: {"пт": 860.0, ...}. Лише дні, у які були чеки."""
-    raise NotImplementedError("задача 4: напиши revenue_by_day()")
+    count = {}
+    for order in orders:
+        day = day_name(order.timestamp)
+        count[day] = count.get(day, 0) + order.total_bill
+
+    return count
+
+
+
 
 
 def best_day(revenue):
     """День з найбільшим виторгом; для порожнього словника — None."""
-    raise NotImplementedError("задача 4: напиши best_day()")
+    best = None
+    for day,bill in revenue.items():
+        if best is None or bill > revenue[best]:
+            best = day
+    return best
 
 
 def count_by_meal(orders):
     """Кількість чеків за прийомом їжі: {"вечеря": 3, "обід": 1}."""
-    raise NotImplementedError("задача 4: напиши count_by_meal()")
+    count = {}
+    for order in orders:
+        meal = meal_type(order.timestamp.hour)
+        count[meal] = count.get(meal, 0) + 1
+    return count
+

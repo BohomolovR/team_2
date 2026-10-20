@@ -14,7 +14,6 @@ def read_lines(path):
 
     return lines
 
-    raise NotImplementedError("задача 3: напиши read_lines()")
 
 
 def load_orders(lines):
@@ -33,5 +32,4 @@ def load_orders(lines):
 
     return (orders,errors)
 
-    raise NotImplementedError("задача 3: напиши load_orders()")
 
